@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+<mapper namespace="com.server.dao.IUserDao">
+
+    <select id="selectUser" resultType="String" parameterType="String">
+        SELECT regIp FROM user WHERE username = #{username}
+    </select>
+
+    <insert id="insertUser" parameterType="User">
+            insert into user(username,password) values(#{user.getUsername()},#{user.getPassword()})
+    </insert>
+
+</mapper>
